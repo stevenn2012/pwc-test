@@ -1,0 +1,66 @@
+nav{
+    background-color: #F5F4F0 !important;   
+}
+
+.dropdown-menu#times{
+    min-width: 280px;
+}
+
+nav a b{
+    line-height: 4;
+}
+
+.logo{
+    margin-top: -33px;
+}
+
+.ul-navbar{
+    margin: auto;
+}
+
+.ul-navbar li a{
+    text-transform: uppercase;
+    font-size: 14px;
+    word-wrap:break-word;
+    font-weight: 450;
+}
+
+.boton-acceso{
+    border-top-left-radius: 0; 
+    border-top-right-radius: 0;
+    border-top: none;
+    border-color: #EB8C00;
+    color: #EB8C00;
+}
+
+.boton-acceso:hover{
+    color: white;
+    background-color: #EB8C00;
+}
+
+#parent-container-botones-acceso{
+    position: relative;
+    min-height: 40px;
+}
+
+#container-botones-acceso{
+    float: right; margin-right: 30px
+}
+
+@media screen and (max-width: 767px){
+    .dropdown-menu#times{
+        min-width: unset;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .boton-acceso{
+        margin-left: 1px;
+        margin-right: 1px;
+        width: calc(50% - 4px);
+        margin: auto;
+    }
+    #container-botones-acceso{
+        float: unset; margin-right: unset;
+    }
+}
