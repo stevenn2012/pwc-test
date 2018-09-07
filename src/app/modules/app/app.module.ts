@@ -23,6 +23,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../../../environments/environment';
 import { UsuarioModule } from '../usuario/usuario.module';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 //FIREBASE CONFIGURATION
 export const firebaseConfig = environment.firebaseConfig;
