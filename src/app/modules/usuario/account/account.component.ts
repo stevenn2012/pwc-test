@@ -14,7 +14,7 @@ export class AccountComponent implements OnInit {
 
     public form: FormGroup;
     public vdl_nombre: FormControl;
-    private nombre: string;
+    public nombre: string;
 
     constructor(private util: UtilService, private fb: FormBuilder, private router: ActivatedRoute) { }
 
