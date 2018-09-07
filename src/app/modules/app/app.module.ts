@@ -53,7 +53,7 @@ export const firebaseConfig = environment.firebaseConfig;
         AngularFireDatabaseModule,
         AngularFireAuthModule,
     ],
-    providers: [UtilService],
+    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, UtilService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
