@@ -1,14 +1,32 @@
 <h1>PwC tax & legal times</h1>
 <h6> {{date | date: 'EEEE, MMMM d, y'}} </h6>
 <div class="row col-md-10 col-centered">
-    <div class="col-md-4">
+    <div class="col-md-8">
         <app-noticias-ultima-semana></app-noticias-ultima-semana>
     </div>
     <div class="col-md-4">
         <app-noticias-dia></app-noticias-dia>
+        <hr>
         <app-noticias-hora></app-noticias-hora>
     </div>
-    <div class="col-md-4">
-
+    <div class="col-md-12" style="text-align: center; margin-bottom: 50px;">
+        <hr>
+        <h4>
+            Conoce los temas de cada dia
+        </h4>
+        <hr>
+        <br> En Tax and Legal Times sabemos que existen diversos campos de conocimiento y que su relevancia es diferente
+        para todos. Por ello, además de mencionar las noticias destacadas, hacemos énfasis en aquellas que correspondan al
+        tema del día. Ubica el cursor sobre cada día para descubrir su contenido
+        <br><br>
+        <div>
+            <button id="lunes" type="button" class="btn btn-primary botons">Lunes</button>
+            <button id="martes" type="button" class="btn btn-primary botons">Martes</button>
+            <button id="miercoles" type="button" class="btn btn-primary botons">Miercoles</button>
+            <button id="jueves" type="button" class="btn btn-primary botons">Jueves</button>
+            <button id="viernes" type="button" class="btn btn-primary botons">Viernes</button>
+            <button id="taxClip" type="button" class="btn btn-primary botons">Tax clip</button>
+            <button id="boletines" type="button" class="btn btn-primary botons">Boletines</button>
+        </div>
     </div>
 </div>

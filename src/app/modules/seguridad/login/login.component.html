@@ -1,0 +1,30 @@
+<div id="loginContainer">
+    <div>
+        <form [formGroup]="form" id="formularioLogin" (ngSubmit)="login()">
+            <div id="imageContainer">
+                <img id="imagenLogoEmpresa" src="https://www.pwc.com/content/pwc/script/network/parallax/PwC-logo.svg" alt="logoEmpresa">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                </div>
+                <input [formControl]="vdl_usuario" [(ngModel)]="usuario.usuario" type="text" class="form-control" aria-label="Sizing example input"
+                    placeholder="Usuario" aria-describedby="inputGroup-sizing-sm" [attr.disabled]="load?'':null">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+                </div>
+                <input [formControl]="vdl_password" [(ngModel)]="usuario.password" type="password" class="form-control" aria-label="Sizing example input"
+                    placeholder="Contraseña" aria-describedby="inputGroup-sizing-sm" [attr.disabled]="load?'':null">
+            </div>
+            <div *ngIf="errorMessage != undefined" id="errorLabel" class="alert alert-warning" role="alert">
+                {{errorMessage}}
+            </div>
+            <button id="ingresarBotton" type="submit" class="btn" [ngClass]="{'btn-securtalent': (isValid() && !load)}" [disabled]="!isValid() || load">
+                <span *ngIf="!load">Ingresar</span>
+                <img id="loader" *ngIf="load" src="/assets/images/Spinner.svg">
+            </button>
+        </form>
+    </div>
+</div>

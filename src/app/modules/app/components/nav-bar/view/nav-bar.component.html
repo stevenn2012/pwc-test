@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" [routerLink]="['/']">
         <img class="logo" src="https://www.pwc.com/content/pwc/script/network/parallax/PwC-logo.svg" alt="logo"> |
         <b>Tax & Legal Times</b>
         <br>
@@ -13,69 +13,65 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto ul-navbar">
             <li class="nav-item">
-                <a class="nav-link" href="#">Inicio</a>
+                <a class="nav-link" [routerLink]="['/']">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Estatuto tributario</a>
+                <a class="nav-link" [routerLink]="['/estatuto']" *ngIf="hasCurrentUser == true">Estatuto tributario</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Doctrina</a>
+                <a class="nav-link" [routerLink]="['/doctrina']" *ngIf="hasCurrentUser == true">Doctrina</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li class="nav-item dropdown" *ngIf="hasCurrentUser == true">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Jurisprudencia
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Jurisprudencia</a>
+                    <a class="dropdown-item" [routerLink]="['/jurisprudencia']">Jurisprudencia</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Corte constitucional</a>
-                    <a class="dropdown-item" href="#">Consejo de estado</a>
+                    <a class="dropdown-item">Corte constitucional</a>
+                    <a class="dropdown-item">Consejo de estado</a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li class="nav-item dropdown" *ngIf="hasCurrentUser == true">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Normatividad
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Normatividad</a>
+                    <a class="dropdown-item" [routerLink]="['/normatividad']">Normatividad</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Leyes y decretos <br> reglamentarios</a>
-                    <a class="dropdown-item" href="#">Textos originales</a>
+                    <a class="dropdown-item">Leyes y decretos <br> reglamentarios</a>
+                    <a class="dropdown-item">Textos originales</a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li class="nav-item dropdown" *ngIf="hasCurrentUser == true">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Tax & legal times
                 </a>
                 <div id="times" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Times</a>
+                    <a class="dropdown-item" [routerLink]="['/tax']">Times</a>
                     <div class="dropdown-divider"></div>
                     <div class="row">
                         <div class="col-md-6">
-                            <a class="dropdown-item" href="#">Home times</a>
-                            <a class="dropdown-item" href="#">Lunes</a>
-                            <a class="dropdown-item" href="#">Martes</a>
+                            <a class="dropdown-item">Home times</a>
+                            <a class="dropdown-item">Lunes</a>
+                            <a class="dropdown-item">Martes</a>
                         </div>
                         <div class="col-md-6">
-                            <a class="dropdown-item" href="#">Miercoles</a>
-                            <a class="dropdown-item" href="#">Jueves</a>
-                            <a class="dropdown-item" href="#">Viernes</a>
+                            <a class="dropdown-item">Miercoles</a>
+                            <a class="dropdown-item">Jueves</a>
+                            <a class="dropdown-item">Viernes</a>
                         </div>
                     </div>
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     PwC Colombia
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Sobre nosotros</a>
+                    <a class="dropdown-item" [routerLink]="['/pwcColombia']">Sobre nosotros</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Contáctanos</a>
+                    <a class="dropdown-item" [routerLink]="['/contactenos']">Contáctanos</a>
                 </div>
             </li>
         </ul>
@@ -83,7 +79,25 @@
 </nav>
 <div id="parent-container-botones-acceso">
     <div id="container-botones-acceso">
-        <button type="button" class="btn btn-outline-primary boton-acceso">Login</button>
-        <button type="button" class="btn btn-outline-primary boton-acceso">Registro</button>
+        <a [routerLink]="['/login']" *ngIf="hasCurrentUser == false">
+            <button type="button" class="btn btn-outline-primary boton-acceso">
+                Login
+            </button>
+        </a>
+        <a *ngIf="hasCurrentUser == false">
+            <button type="button" class="btn btn-outline-primary boton-acceso">
+                Registro
+            </button>
+        </a>
+        <a [routerLink]="['/account']" *ngIf="hasCurrentUser == true">
+            <span style="padding: 10px;">
+                Bienvenido {{nombre}}
+            </span>
+        </a>
+        <a *ngIf="hasCurrentUser == true">
+            <button type="button" class="btn btn-outline-primary boton-acceso" (click)="cerrarSession()">
+                Cerrar Sesión
+            </button>
+        </a>
     </div>
 </div>

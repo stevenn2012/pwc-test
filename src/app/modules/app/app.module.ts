@@ -15,6 +15,17 @@ import { NormatividadModule } from '../normatividad/normatividad.module';
 import { PwcColombiaModule } from '../pwc-colombia/pwc-colombia.module';
 import { TaxLegalTimesModule } from '../tax-legal-times/tax-legal-times.module';
 import { NoticiasModule } from '../noticias/noticias.module';
+import { SeguridadModule } from '../seguridad/seguridad.module';
+import { UtilService } from '../../resources/services/util/util.service';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../../../environments/environment';
+import { UsuarioModule } from '../usuario/usuario.module';
+
+//FIREBASE CONFIGURATION
+export const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
     declarations: [
@@ -33,9 +44,16 @@ import { NoticiasModule } from '../noticias/noticias.module';
         NormatividadModule,
         PwcColombiaModule,
         TaxLegalTimesModule,
-        NoticiasModule
+        NoticiasModule,
+        SeguridadModule,
+        UsuarioModule,
+
+        //FIREBASE MODULES
+        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
     ],
-    providers: [],
+    providers: [UtilService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
